@@ -4,6 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+// Define the button variants using the cva function
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
@@ -35,6 +36,7 @@ const buttonVariants = cva(
   }
 );
 
+// Button component
 function Button({
   className,
   variant,
@@ -56,4 +58,30 @@ function Button({
   );
 }
 
+// Custom styles for the page layout
+const pageStyles = {
+  container: "flex justify-center items-center h-screen bg-gray-100",
+  heading: "text-3xl font-bold text-center text-gray-800 mb-6",
+  button: "transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl",
+};
+
+// Main Page Layout
+const App = () => {
+  return (
+    <div className={pageStyles.container}>
+      <div>
+        <h1 className={pageStyles.heading}>Custom Button UI</h1>
+        <Button
+          variant="secondary"
+          size="lg"
+          className={`${pageStyles.button} bg-gradient-to-r from-teal-400 to-blue-500 text-white`}
+        >
+          Click Me
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 export { Button, buttonVariants };
+export default App;
